@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace QuickBuy.Dominio.Entidades
 {
-    class Produto : Entidade
+    public class Produto : Entidade
     {
         public int Id { get; set; }
         public string Nome { get; set; }
@@ -13,7 +10,11 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Nome))
+                AdicionarCritica("Nome não informado");
+
+            if (string.IsNullOrEmpty(Descricao))
+                AdicionarCritica("Descricao não foi informado");
         }
     }
 }

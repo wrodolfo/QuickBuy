@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace QuickBuy.Dominio.Entidades
 {
@@ -17,7 +16,11 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(Email))
+                AdicionarCritica("Email não informado");
+
+            if (string.IsNullOrEmpty(Senha))
+                AdicionarCritica("Senha não foi informado");
         }
     }
 }
